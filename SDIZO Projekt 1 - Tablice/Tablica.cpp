@@ -91,12 +91,23 @@ void Tablica::Push_Middle(int value, int index)
 
 void Tablica::Remove_Front()
 {
-	//TODO
+	length--;
+	int* tempTab = new int[length];
+	for (int i = 0; i < length; i++)
+	{
+		tempTab[i] = tab[i + 1];
+	}
+	delete[] tab;
+	tab = new int[length];
+	for (int i = 0; i < length; i++)
+	{
+		tab[i] = tempTab[i];
+	}
+	delete[] tempTab;
 }
 
 void Tablica::Remove_Back()
 {
-	//TODO
 	length--;
 	int * tempTab = new int[length];
 	for (int i = 0; i < length; i++)
