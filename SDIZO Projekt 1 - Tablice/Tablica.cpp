@@ -14,11 +14,24 @@ void Tablica::Push_Front(int value)
 	length++;
 	if (length > 0)
 	{
-
+		int* tempTab = new int[length - 1];
+		for (int i = 0; i < length - 1; i++)
+		{
+			tempTab[i] = tab[i];
+		}
+		delete[] tab;
+		tab = new int[length];
+		tab[0] = value;
+		for (int i = 1; i < length; i++)
+		{
+			tab[i] = tempTab[i - 1];
+		}
+		delete[] tempTab;
 	}
 	else
 	{
-
+		tab = new int[1];
+		tab[0] = value;
 	}
 }
 
@@ -85,5 +98,9 @@ void Tablica::Print_All()
 	{
 		cout << "[" << i << "] " << tab[i] << endl;
 	}
+}
+
+void Tablica::Creata_Data(int size)
+{
 }
 

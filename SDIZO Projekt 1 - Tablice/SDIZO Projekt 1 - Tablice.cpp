@@ -11,10 +11,9 @@ int main()
 {
     //cout << "Hello World!\n"; 
 	Tablica tablica;
-	//tablica.Print_All();
-	tablica.Push_Back(5);
-	tablica.Push_Back(6);
-	tablica.Push_Back(7);
+	tablica.Push_Front(5);
+	tablica.Push_Front(6);
+	tablica.Push_Front(7);
 	tablica.Print_All();
 }
 

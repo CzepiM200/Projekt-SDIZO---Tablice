@@ -38,3 +38,7 @@
 *.user
 *.log
 *.idb
+*.db
+*.suo
+*.ipch
+*.opendb
