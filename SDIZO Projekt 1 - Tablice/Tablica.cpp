@@ -105,6 +105,10 @@ void Tablica::Remove_Middle(int index)
 
 bool Tablica::Find(int value)
 {
+	for (int i = 0; i < length; i++)
+	{
+		if (tab[i] == value) return true;
+	}
 	return false;
 }
 

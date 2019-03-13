@@ -15,6 +15,8 @@ int main()
 	tablica.Push_Middle(6,1);
 	tablica.Push_Middle(7,1);
 	tablica.Print_All();
+	if (tablica.Find(8)) cout << "Jest" << endl;
+	else cout << "Brak" << endl;
 }
 
 // Uruchomienie programu: Ctrl + F5 lub menu Debugowanie > Uruchom bez debugowania
