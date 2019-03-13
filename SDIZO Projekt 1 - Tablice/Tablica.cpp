@@ -9,6 +9,7 @@ Tablica::Tablica()
 	length = 0;
 }
 
+
 void Tablica::Push_Front(int value)
 {
 	length++;
@@ -53,24 +54,45 @@ void Tablica::Push_Back(int value)
 		}
 		tab[length - 1] = value;
 		delete[] tempTab;
-		//cout << "Dodano - " << tab[length - 1] << endl;
 	}
 	else
 	{
 		tab = new int[1];
 		tab[0] = value;
-		//cout << "Dodano - " << tab[0] << endl;
 	}
 	
 }
 
 void Tablica::Push_Middle(int value, int index)
 {
-
+	if (index >= length) Push_Back(value);
+	else if (index == 0) Push_Front(value);
+	else
+	{
+		length++;
+		int * tempTab = new int[length - 1];
+		for (int i = 0; i < length - 1; i++)
+		{
+			tempTab[i] = tab[i];
+		}
+		delete[] tab;
+		tab = new int[length];
+		for (int i = 0; i != index; i++)
+		{
+			tab[i] = tempTab[i];
+		}
+		tab[index] = value;
+		for (int i = index + 1; i < length; i++)
+		{
+			tab[i] = tempTab[i - 1];
+		}
+		delete[] tempTab;
+	} 
 }
 
 void Tablica::Remove_Front()
 {
+
 }
 
 void Tablica::Remove_Back()
