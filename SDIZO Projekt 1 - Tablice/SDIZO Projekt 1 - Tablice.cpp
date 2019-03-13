@@ -11,6 +11,7 @@ int main()
 {
     //cout << "Hello World!\n"; 
 	Tablica tablica;
+	tablica.Remove_Front();
 	tablica.Push_Middle(5,1);
 	tablica.Push_Middle(6,1);
 	tablica.Push_Middle(7,1);
