@@ -17,6 +17,7 @@ int main()
 	tablica.Print_All();
 	if (tablica.Find(8)) cout << "Jest" << endl;
 	else cout << "Brak" << endl;
+	tablica.Print_Selected(3);
 }
 
 // Uruchomienie programu: Ctrl + F5 lub menu Debugowanie > Uruchom bez debugowania

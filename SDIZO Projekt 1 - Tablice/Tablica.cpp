@@ -9,7 +9,6 @@ Tablica::Tablica()
 	length = 0;
 }
 
-
 void Tablica::Push_Front(int value)
 {
 	length++;
@@ -92,15 +91,17 @@ void Tablica::Push_Middle(int value, int index)
 
 void Tablica::Remove_Front()
 {
-
+	//TODO
 }
 
 void Tablica::Remove_Back()
 {
+	//TODO
 }
 
 void Tablica::Remove_Middle(int index)
 {
+	//TODO
 }
 
 bool Tablica::Find(int value)
@@ -114,6 +115,9 @@ bool Tablica::Find(int value)
 
 void Tablica::Print_Selected(int index)
 {
+	if (index >= 0 && index < length)
+		cout << "[" << index << "] " << tab[index] << endl;
+	else cout << "Indeks poza zakresem\n";
 }
 
 void Tablica::Print_All()
@@ -128,5 +132,6 @@ void Tablica::Print_All()
 
 void Tablica::Creata_Data(int size)
 {
+	//TODO
 }
 
