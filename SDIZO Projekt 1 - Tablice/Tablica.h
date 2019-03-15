@@ -6,7 +6,7 @@ public:
 
 public:
 	Tablica();
-	~Tablica();
+	virtual ~Tablica();
 	void Push_Front(int value);
 	void Push_Back(int value);
 	void Push_Middle(int value, int index);
@@ -17,5 +17,6 @@ public:
 	void Print_Selected(int index);
 	void Print_All();
 	void Creata_Data(int size);
+	void Load_Data();
 
 };

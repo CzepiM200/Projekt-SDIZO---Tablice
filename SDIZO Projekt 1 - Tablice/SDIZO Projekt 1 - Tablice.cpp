@@ -9,15 +9,10 @@ using namespace std;
 
 int main()
 {
-    //cout << "Hello World!\n"; 
 	Tablica tablica;
-	tablica.Remove_Front();
-	tablica.Push_Front(5);
-	tablica.Push_Front(6);
-	tablica.Push_Front(7);
-	tablica.Remove_Middle(2);
+	tablica.Creata_Data(100);
+	tablica.Load_Data();
 	tablica.Print_All();
-
 }
 
 // Uruchomienie programu: Ctrl + F5 lub menu Debugowanie > Uruchom bez debugowania
