@@ -228,5 +228,3 @@ void Tablica::Load_Data()
 	}
 	else cout << "Blad wczytywania pliku !\n";
 }
-
-
