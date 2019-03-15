@@ -6,6 +6,7 @@ public:
 
 public:
 	Tablica();
+	~Tablica();
 	void Push_Front(int value);
 	void Push_Back(int value);
 	void Push_Middle(int value, int index);

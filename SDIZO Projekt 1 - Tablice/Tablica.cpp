@@ -9,6 +9,11 @@ Tablica::Tablica()
 	length = 0;
 }
 
+Tablica::~Tablica()
+{
+	//TODO
+}
+
 void Tablica::Push_Front(int value)
 {
 	length++;
@@ -131,7 +136,26 @@ void Tablica::Remove_Back()
 
 void Tablica::Remove_Middle(int index)
 {
-	//TODO
+	if (length > 0)
+	{
+		length--;
+		int * tempTab = new int[length];
+		for (int i = 0; i < index; i++) 
+		{
+			tempTab[i] = tab[i];
+		}
+		for (int i = index ; i < length ; i++)
+		{
+			tempTab[i] = tab[i + 1];
+		}
+		delete[] tab;
+		tab = new int[length];
+		for (int i = 0; i < length; i++)
+		{
+			tab[i] = tempTab[i];
+		}
+		delete[] tempTab;
+	}
 }
 
 bool Tablica::Find(int value)
