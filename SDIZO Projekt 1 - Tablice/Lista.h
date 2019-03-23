@@ -1,10 +1,19 @@
-#pragma once
-
 class Lista
 {
 	public:
-		int * first;
+		struct Element
+		{
+			Element(int newValue)
+			{
+				value = newValue;
+				next = nullptr;
+			}
 
+			Element * next;
+			Element * prev;
+			int value;
+		};
+		Element * first;
 	public:
 		Lista();
 		virtual ~Lista();
