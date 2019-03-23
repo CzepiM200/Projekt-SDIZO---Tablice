@@ -98,6 +98,16 @@ void Lista::Remove_Middle(int index)
 
 bool Lista::Find(int value)
 {
+	if (first != nullptr)
+	{
+		if (first->value == value) return true;
+		Element * temp = first;
+		while (temp->next != nullptr)
+		{
+			if (temp->value == value) return true;
+			temp = temp->next;
+		}
+	}
 	return false;
 }
 
