@@ -63,6 +63,12 @@ void Lista::Push_Middle(int value, int index)
 
 void Lista::Remove_Front()
 {
+	if (first != nullptr)
+	{
+		Element * temp = first;
+		first = first->next;
+		delete temp;
+	}
 }
 
 void Lista::Remove_Back()
