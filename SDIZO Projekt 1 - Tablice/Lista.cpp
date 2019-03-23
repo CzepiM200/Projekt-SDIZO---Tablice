@@ -73,6 +73,23 @@ void Lista::Remove_Front()
 
 void Lista::Remove_Back()
 {
+	if (first != nullptr)
+	{
+		if (first->next != nullptr)
+		{
+			Element * temp = first;
+			while (temp->next->next != nullptr)
+			{
+				temp = temp->next;
+			}
+			delete temp->next;
+			temp->next = nullptr;
+		}
+		else
+		{
+			Remove_Front();
+		}
+	}
 }
 
 void Lista::Remove_Middle(int index)
