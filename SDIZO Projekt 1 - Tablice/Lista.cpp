@@ -133,4 +133,20 @@ void Lista::Creata_Data(int size)
 
 void Lista::Load_Data()
 {
+	cout << "Wczytywanie plikow z danymi..." << endl;
+	ifstream data;
+	int file_length, temp;
+	data.open("data.txt", ios::out);
+	if (data.is_open() == true)
+	{
+		data >> file_length;
+		for (int i = 0; i < file_length; i++)
+		{
+			data >> temp;
+			this->Push_Back(temp);
+		}
+		cout << "Wczytywanie plikow z danymi przebieglo pomyslnie" << endl;
+		data.close();
+	}
+	else cout << "Blad wczytywania pliku !\n";
 }
