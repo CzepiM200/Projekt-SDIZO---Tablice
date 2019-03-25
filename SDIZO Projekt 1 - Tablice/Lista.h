@@ -26,6 +26,5 @@ class Lista
 		bool Find(int value);
 		void Print_Selected(int index);
 		void Print_All();
-		void Creata_Data(int size);
 		void Load_Data();
 };

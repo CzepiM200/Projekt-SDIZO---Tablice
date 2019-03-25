@@ -135,7 +135,7 @@ bool Lista::Find(int value)
 
 void Lista::Print_Selected(int index)
 {
-
+	///TODO
 }
 
 void Lista::Print_All()
@@ -150,13 +150,9 @@ void Lista::Print_All()
 	}
 }
 
-void Lista::Creata_Data(int size)
-{
-}
-
 void Lista::Load_Data()
 {
-	cout << "Wczytywanie plikow z danymi..." << endl;
+	cout << "[Lista] Wczytywanie plikow z danymi..." << endl;
 	ifstream data;
 	int file_length, temp;
 	data.open("data.txt", ios::out);
@@ -168,8 +164,8 @@ void Lista::Load_Data()
 			data >> temp;
 			this->Push_Back(temp);
 		}
-		cout << "Wczytywanie plikow z danymi przebieglo pomyslnie" << endl;
+		cout << "[Lista] Wczytywanie plikow z danymi przebieglo pomyslnie" << endl;
 		data.close();
 	}
-	else cout << "Blad wczytywania pliku !\n";
+	else cout << "[Lista] Blad wczytywania pliku !\n";
 }
