@@ -94,6 +94,28 @@ void Lista::Remove_Back()
 
 void Lista::Remove_Middle(int index)
 {
+	if (first != nullptr)
+	{
+		if (index == 0) Remove_Front();
+		else if (first->next != nullptr)
+		{
+			Element * temp = first;
+			Element * temp2 = first->next;
+			int i = 0;
+			do 
+			{
+				i++;
+				if (i == index)
+				{
+					temp->next = temp2->next;
+					delete temp2;
+					break;
+				}
+				temp = temp->next;
+				temp2 = temp2->next;
+			} while (temp->next != nullptr);
+		}
+	}
 }
 
 bool Lista::Find(int value)
@@ -113,6 +135,7 @@ bool Lista::Find(int value)
 
 void Lista::Print_Selected(int index)
 {
+
 }
 
 void Lista::Print_All()
