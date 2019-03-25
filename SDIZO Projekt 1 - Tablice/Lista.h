@@ -14,6 +14,7 @@ class Lista
 			int value;
 		};
 		Element * first;
+
 	public:
 		Lista();
 		virtual ~Lista();
