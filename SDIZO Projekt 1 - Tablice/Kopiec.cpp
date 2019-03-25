@@ -42,6 +42,7 @@ void Kopiec::Push(int value)
 
 void Kopiec::Remove(int value)
 {
+
 }
 
 void Kopiec::Repair_From_Last()
@@ -64,9 +65,51 @@ void Kopiec::Repair_From_Last()
 	}
 }
 
+///DO SPRAWDZENIA
+void Kopiec::Repair_From(int index)
+{
+	int parent = ((index - 2) / 2);
+	int newNode = index - 1;
+	int temp;
+
+	while (newNode != 0)
+	{
+		if (tab[parent] < tab[newNode])
+		{
+			temp = tab[parent];
+			tab[parent] = tab[newNode];
+			tab[newNode] = temp;
+			newNode = parent;
+			parent = ((newNode - 1) / 2);
+		}
+		else break;
+	}
+}
+
 void Kopiec::Find(int value)
 {
+	pom = false;
+	Set_Flag(value, 0);
+	if(pom) cout << "Znaleziono wartosc " << value << " w kopcu" << endl;
+	else cout << "Nie znaleziono wartosci " << value << " w kopcu" << endl;
+}
 
+void Kopiec::Set_Flag(int value, int parent)
+{
+	if (tab[parent] == value)
+	{
+		pom = true;
+		return;
+	}
+	else
+	{
+		if (pom == false)
+		{
+			if ((2 * parent + 1) < length) Set_Flag(value, (2 * parent + 1));
+			if ((2 * parent + 2) < length) Set_Flag(value, (2 * parent + 2));
+		}
+		else return;
+	}
 }
 
 void Kopiec::Print_All()
