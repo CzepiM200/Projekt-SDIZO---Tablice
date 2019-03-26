@@ -29,7 +29,7 @@ void Kopiec::Push(int value)
 			tab[i] = tempTab[i];
 		}
 		tab[length - 1] = value;
-		Repair_From_Last();
+		Repair_Down_From_Last();
 		delete[] tempTab;
 	}
 	else
@@ -42,10 +42,30 @@ void Kopiec::Push(int value)
 
 void Kopiec::Remove(int value)
 {
-
+	index = -1;
+	pom = false;
+	Set_Flag(value, 0);
+	if (pom)
+	{
+		tab[index] = tab[length-1];
+		Repair_Up_From_Index();
+		length--;
+		int* tempTab = new int[length];
+		for (int i = 0; i < length; i++)
+		{
+			tempTab[i] = tab[i];
+		}
+		delete[] tab;
+		tab = new int[length];
+		for (int i = 0; i < length; i++)
+		{
+			tab[i] = tempTab[i];
+		}
+		delete[] tempTab;
+	}
 }
 
-void Kopiec::Repair_From_Last()
+void Kopiec::Repair_Down_From_Last()
 {
 	int parent = ((length-2)/2);
 	int newNode = length - 1;
@@ -65,29 +85,50 @@ void Kopiec::Repair_From_Last()
 	}
 }
 
-///DO SPRAWDZENIA
-void Kopiec::Repair_From(int index)
+void Kopiec::Repair_Up_From_Index()
 {
-	int parent = ((index - 2) / 2);
-	int newNode = index - 1;
+	int parent = index;
+	int left = (2 * parent) + 1;
+	int right = (2 * parent) + 2;
 	int temp;
-
-	while (newNode != 0)
+	while (true)
 	{
-		if (tab[parent] < tab[newNode])
+		if (right < length)
 		{
-			temp = tab[parent];
-			tab[parent] = tab[newNode];
-			tab[newNode] = temp;
-			newNode = parent;
-			parent = ((newNode - 1) / 2);
+			if (tab[left] > tab[right])
+			{
+				temp = tab[left];
+				tab[left] = tab[parent];
+				tab[parent] = temp;
+				parent = left;
+			}
+			else
+			{
+				temp = tab[right];
+				tab[right] = tab[parent];
+				tab[parent] = temp;
+				parent = right;
+			}
 		}
-		else break;
+		else if (left < length)
+		{
+			temp = tab[left];
+			tab[left] = tab[parent];
+			tab[parent] = temp;
+			parent = left;
+		}
+		else
+		{
+			break;
+		}
+		left = (2 * parent) + 1;
+		right = (2 * parent) + 2;
 	}
 }
 
 void Kopiec::Find(int value)
 {
+	index = -1;
 	pom = false;
 	Set_Flag(value, 0);
 	if(pom) cout << "Znaleziono wartosc " << value << " w kopcu" << endl;
@@ -99,6 +140,7 @@ void Kopiec::Set_Flag(int value, int parent)
 	if (tab[parent] == value)
 	{
 		pom = true;
+		index = parent;
 		return;
 	}
 	else
